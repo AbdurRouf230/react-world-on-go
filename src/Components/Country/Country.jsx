@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Country.css';
-const Country = ({country , handleVisitedCountries}) => {
+const Country = ({country ,handlePngArray, handleVisitedCountries}) => {
     const name = country.name.common;
     const {png , alt} = country.flags.flags;
     const population = country.population.population;
@@ -21,8 +21,9 @@ const Country = ({country , handleVisitedCountries}) => {
         
         // 3rd system
         setVisited(!visited);
-        // Lift up from the Countries 
-        handleVisitedCountries(name);
+        // Lift up from the Countries
+        handlePngArray(png,!visited); 
+        handleVisitedCountries(name , !visited);
     }
     // Conditional css
     return (
